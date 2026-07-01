@@ -105,3 +105,10 @@ html {
   word-break: break-word;
   overflow-wrap: break-word;
 }
+
+/* Image rendering optimizations for crystal-clear screenshots */
+.sharp-img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated; /* Fallback for browsers */
+}

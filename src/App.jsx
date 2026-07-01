@@ -1079,7 +1079,7 @@ export default function App() {
                       <img 
                         src="/assets/chatgpt_share_project.png" 
                         alt="ChatGPT Project Migration Guide" 
-                        className="w-full h-auto max-h-[400px] object-contain cursor-pointer hover:opacity-90 transition-opacity"
+                        className="w-full h-auto max-h-[400px] object-contain cursor-pointer hover:opacity-90 transition-opacity sharp-img"
                         onClick={() => setLightboxImage("/assets/chatgpt_share_project.png")}
                       />
                       <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-md text-white text-[10px] font-bold px-2.5 py-1.5 rounded-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
@@ -1097,7 +1097,7 @@ export default function App() {
                           <img 
                             src="/assets/chatgpt_share_step_1.png" 
                             alt="Step 1" 
-                            className="w-full h-full object-contain cursor-pointer hover:opacity-90 transition-opacity"
+                            className="w-full h-full object-contain cursor-pointer hover:opacity-90 transition-opacity sharp-img"
                             onClick={() => setLightboxImage("/assets/chatgpt_share_step_1.png")}
                           />
                           <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-md text-white text-[10px] font-bold px-2.5 py-1.5 rounded-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
@@ -1114,7 +1114,7 @@ export default function App() {
                           <img 
                             src="/assets/chatgpt_share_step_2.png" 
                             alt="Step 2" 
-                            className="w-full h-full object-contain cursor-pointer hover:opacity-90 transition-opacity"
+                            className="w-full h-full object-contain cursor-pointer hover:opacity-90 transition-opacity sharp-img"
                             onClick={() => setLightboxImage("/assets/chatgpt_share_step_2.png")}
                           />
                           <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-md text-white text-[10px] font-bold px-2.5 py-1.5 rounded-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
@@ -1252,13 +1252,13 @@ export default function App() {
 
           {/* Image container */}
           <div 
-            className="relative max-w-2xl w-full max-h-[90vh] flex items-center justify-center"
+            className="relative max-w-5xl w-full max-h-[90vh] flex items-center justify-center"
             onClick={(e) => e.stopPropagation()}
           >
             <img 
               src={lightboxImage} 
               alt="Full view" 
-              className="w-full h-auto max-h-[85vh] object-contain rounded-2xl shadow-2xl animate-fade-in"
+              className="w-full h-auto max-h-[85vh] object-contain rounded-2xl shadow-2xl animate-fade-in sharp-img"
             />
           </div>
 
