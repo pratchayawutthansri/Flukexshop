@@ -986,24 +986,24 @@ export default function App() {
               />
             </div>
 
-            {/* Product Info — clean & simple */}
+            {/* Product Info — clean, premium & highly readable */}
             <div className="md:w-1/2 p-8 sm:p-10 flex flex-col justify-start text-left overflow-y-auto max-h-[90vh]">
               
               <div className="space-y-5">
-                <span className="inline-block text-[11px] font-bold tracking-widest uppercase text-terracotta bg-terracotta/10 px-3 py-1.5 rounded-lg">
+                <span className="inline-block text-xs font-bold tracking-widest uppercase text-terracotta bg-terracotta/10 px-3 py-1.5 rounded-lg">
                   {selectedProduct.category}
                 </span>
 
                 <h2 className="font-sans text-2xl sm:text-3xl font-extrabold text-charcoal leading-tight">{selectedProduct.title}</h2>
                 
-                <p className="font-sans text-sm text-charcoal/70 leading-relaxed">
+                <p className="font-sans text-sm sm:text-base text-charcoal/90 leading-relaxed">
                   {lang === 'th' ? selectedProduct.descriptionTh : selectedProduct.descriptionEn}
                 </p>
 
                 {/* Lightbox link */}
                 <button
                   onClick={() => setLightboxImage(selectedProduct.image)}
-                  className="inline-flex items-center gap-2 text-xs font-semibold text-terracotta hover:underline cursor-pointer"
+                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-terracotta hover:underline cursor-pointer"
                 >
                   <Maximize2 className="w-3.5 h-3.5" />
                   {lang === 'th' ? 'กดเพื่อดูรูปภาพขนาดเต็ม' : 'Click to view full image'}
@@ -1013,8 +1013,8 @@ export default function App() {
               {/* Product Features List */}
               {selectedProduct.featuresTh && lang === 'th' && (
                 <div className="space-y-3 pt-6 mt-6 border-t border-neutral-200/60">
-                  <h3 className="text-xs uppercase tracking-widest text-neutral-400 font-bold">สิ่งที่คุณจะได้รับ</h3>
-                  <ul className="space-y-2.5 text-xs sm:text-sm text-charcoal/80 font-medium">
+                  <h3 className="text-xs sm:text-sm uppercase tracking-widest text-neutral-400 font-bold">สิ่งที่คุณจะได้รับ</h3>
+                  <ul className="space-y-2.5 text-sm sm:text-base text-charcoal/90 font-medium">
                     {selectedProduct.featuresTh.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-2.5 leading-relaxed">
                         <span className="flex-shrink-0 mt-0.5">•</span>
@@ -1026,8 +1026,8 @@ export default function App() {
               )}
               {selectedProduct.featuresEn && lang === 'en' && (
                 <div className="space-y-3 pt-6 mt-6 border-t border-neutral-200/60">
-                  <h3 className="text-xs uppercase tracking-widest text-neutral-400 font-bold">What you will receive</h3>
-                  <ul className="space-y-2.5 text-xs sm:text-sm text-charcoal/80 font-medium">
+                  <h3 className="text-xs sm:text-sm uppercase tracking-widest text-neutral-400 font-bold">What you will receive</h3>
+                  <ul className="space-y-2.5 text-sm sm:text-base text-charcoal/90 font-medium">
                     {selectedProduct.featuresEn.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-2.5 leading-relaxed">
                         <span className="flex-shrink-0 mt-0.5">•</span>
@@ -1040,21 +1040,21 @@ export default function App() {
 
               {/* Usage Instructions / วิธีการใช้งาน */}
               {selectedProduct.usageInstructionsTh && lang === 'th' && (
-                <div className="space-y-2 pt-6 mt-6 border-t border-neutral-200/60">
-                  <h3 className="text-xs uppercase tracking-widest text-neutral-400 font-bold">
+                <div className="space-y-3 pt-6 mt-6 border-t border-neutral-200/60">
+                  <h3 className="text-xs sm:text-sm uppercase tracking-widest text-neutral-400 font-bold">
                     {selectedProduct.usageHeaderTh || "รายละเอียดและคำแนะนำเพิ่มเติม"}
                   </h3>
-                  <div className="text-xs sm:text-sm text-charcoal/70 leading-relaxed font-medium whitespace-pre-line">
+                  <div className="text-sm sm:text-base text-charcoal/90 leading-relaxed font-medium whitespace-pre-line space-y-2.5">
                     {selectedProduct.usageInstructionsTh}
                   </div>
                 </div>
               )}
               {selectedProduct.usageInstructionsEn && lang === 'en' && (
-                <div className="space-y-2 pt-6 mt-6 border-t border-neutral-200/60">
-                  <h3 className="text-xs uppercase tracking-widest text-neutral-400 font-bold">
+                <div className="space-y-3 pt-6 mt-6 border-t border-neutral-200/60">
+                  <h3 className="text-xs sm:text-sm uppercase tracking-widest text-neutral-400 font-bold">
                     {selectedProduct.usageHeaderEn || "Usage Details & Instructions"}
                   </h3>
-                  <div className="text-xs sm:text-sm text-charcoal/70 leading-relaxed font-medium whitespace-pre-line">
+                  <div className="text-sm sm:text-base text-charcoal/90 leading-relaxed font-medium whitespace-pre-line space-y-2.5">
                     {selectedProduct.usageInstructionsEn}
                   </div>
                 </div>
