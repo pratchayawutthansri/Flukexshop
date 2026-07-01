@@ -1262,7 +1262,7 @@ export default function App() {
                 { id: 'contact', label: t('navContact'), anchor: 'contact' }
               ].map(item => {
                 const isActive = activeTab === item.id;
-                const isShop = item.id === 'shop';
+                const isShop = item.id === 'shop'; // Toggles collapsible mobile shop dropdown inside drawer
 
                 if (isShop) {
                   return (
