@@ -5,6 +5,37 @@
     <link rel="icon" type="image/svg+xml" href="/assets/vase.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Fluke XD Shop — นำเสนอและดูแลสิทธิ์การเข้าใช้งานโมเดล AI ชั้นนำระดับโลก เช่น ChatGPT Plus, Gemini Pro, และ Super Grok เพื่อเพิ่มประสิทธิภาพการทำงานและความคิดสร้างสรรค์ของคุณสูงสุด" />
+
+    <!-- ============================================== -->
+    <!-- 🛡️ SECURITY HARDENING META TAGS (Level: Maximum) -->
+    <!-- ============================================== -->
+
+    <!-- Content Security Policy (CSP) — XSS & Code Injection Prevention -->
+    <!-- Restricts script, style, font, image, and connection sources to trusted origins only -->
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      script-src 'self' 'unsafe-inline';
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      font-src 'self' https://fonts.gstatic.com;
+      img-src 'self' data: https:;
+      connect-src 'self' ws://localhost:* http://localhost:* https://line.me https://web.facebook.com;
+      frame-ancestors 'none';
+      base-uri 'self';
+      form-action 'self';
+      object-src 'none';
+    " />
+
+    <!-- Prevent MIME type sniffing attacks -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+
+    <!-- Control referrer information leakage to external sites -->
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <!-- Permissions Policy — Deny access to sensitive device APIs -->
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()" />
+
+    <!-- ============================================== -->
+
     <title>Fluke XD Shop — Premium AI Accounts & Keys</title>
   </head>
   <body>
