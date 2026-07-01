@@ -22,3 +22,44 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# ============================================
+# 🛡️ SECURITY — Prevent Sensitive File Exposure
+# ============================================
+
+# Environment variables & secrets (CRITICAL)
+.env
+.env.*
+.env.local
+.env.development
+.env.production
+.env.staging
+!.env.example
+
+# Private keys & certificates
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+*.jks
+
+# Credentials & tokens
+*credentials*
+*secret*
+*.token
+auth.json
+
+# OS-generated metadata
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.Spotlight-V100
+.Trashes
+
+# Backup & temp files
+*.bak
+*.tmp
+*.swp
+*.swo
+*~
