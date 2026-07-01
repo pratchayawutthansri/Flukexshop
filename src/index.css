@@ -2,6 +2,7 @@
 
 @import "tailwindcss";
 
+/* Deep Ocean Premium Design System tokens */
 @theme {
   --font-serif: "Bodoni Moda", "Sarabun", serif;
   --font-sans: "Sarabun", "Jost", sans-serif;
