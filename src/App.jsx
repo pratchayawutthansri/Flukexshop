@@ -1060,6 +1060,73 @@ export default function App() {
                 </div>
               )}
 
+              {/* Special Guide for ChatGPT Project Sharing / Migration */}
+              {selectedProduct.modelKey === 'chatgpt-4o' && (
+                <div className="pt-6 mt-6 border-t border-slate-200 space-y-4">
+                  <h3 className="text-xs sm:text-sm uppercase tracking-widest text-neutral-400 font-bold">
+                    {lang === 'th' ? "คู่มือการย้ายโปรเจกต์ (ChatGPT Share Project)" : "ChatGPT Project Migration Guide"}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-charcoal/70 leading-relaxed font-medium">
+                    {lang === 'th' 
+                      ? "ลูกค้าสามารถแชร์โปรเจกต์หรือย้ายประวัติการทำงานจากบัญชีเดิมมายังบัญชีใหม่ได้ง่ายๆ ตามขั้นตอนดังนี้:" 
+                      : "You can easily share projects or migrate chat history from your old account to the new one by following these steps:"}
+                  </p>
+                  
+                  {/* Step Images Grid */}
+                  <div className="space-y-4">
+                    {/* Main Banner / Overview */}
+                    <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-neutral-950 flex items-center justify-center relative group">
+                      <img 
+                        src="/assets/chatgpt_share_project.png" 
+                        alt="ChatGPT Project Migration Guide" 
+                        className="w-full h-auto max-h-[400px] object-contain cursor-pointer hover:opacity-90 transition-opacity"
+                        onClick={() => setLightboxImage("/assets/chatgpt_share_project.png")}
+                      />
+                      <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-md text-white text-[10px] font-bold px-2.5 py-1.5 rounded-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
+                        {lang === 'th' ? "🔍 คลิกเพื่อขยาย" : "🔍 Click to expand"}
+                      </div>
+                    </div>
+                    
+                    {/* Steps side-by-side or stacked on mobile */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <span className="text-xs font-bold text-sky-500 uppercase tracking-wider">
+                          {lang === 'th' ? "ขั้นตอนที่ 1: เตรียมแชร์" : "Step 1: Share Project"}
+                        </span>
+                        <div className="rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-neutral-950 flex items-center justify-center aspect-video sm:aspect-square relative group">
+                          <img 
+                            src="/assets/chatgpt_share_step_1.png" 
+                            alt="Step 1" 
+                            className="w-full h-full object-contain cursor-pointer hover:opacity-90 transition-opacity"
+                            onClick={() => setLightboxImage("/assets/chatgpt_share_step_1.png")}
+                          />
+                          <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-md text-white text-[10px] font-bold px-2.5 py-1.5 rounded-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
+                            {lang === 'th' ? "🔍 ขยาย" : "🔍 Expand"}
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="space-y-2">
+                        <span className="text-xs font-bold text-indigo-500 uppercase tracking-wider">
+                          {lang === 'th' ? "ขั้นตอนที่ 2: ตั้งสิทธิ์ & คัดลอกลิงก์" : "Step 2: Set Access & Copy Link"}
+                        </span>
+                        <div className="rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-neutral-950 flex items-center justify-center aspect-video sm:aspect-square relative group">
+                          <img 
+                            src="/assets/chatgpt_share_step_2.png" 
+                            alt="Step 2" 
+                            className="w-full h-full object-contain cursor-pointer hover:opacity-90 transition-opacity"
+                            onClick={() => setLightboxImage("/assets/chatgpt_share_step_2.png")}
+                          />
+                          <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-md text-white text-[10px] font-bold px-2.5 py-1.5 rounded-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
+                            {lang === 'th' ? "🔍 ขยาย" : "🔍 Expand"}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
               {/* Contact to Purchase */}
               <div className="pt-8 mt-6">
                 <button
