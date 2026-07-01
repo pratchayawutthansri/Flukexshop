@@ -1,0 +1,20 @@
+# Render Blueprint Specification for Vite Static Site
+services:
+  - type: web
+    name: flukexshop
+    env: static
+    buildCommand: npm run build
+    publishDir: dist
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      - path: /*
+        name: Content-Security-Policy
+        value: "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://line.me https://web.facebook.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none';"
