@@ -969,7 +969,7 @@ export default function App() {
           {/* Modal Container */}
           <div className="relative bg-cream-50 rounded-2xl shadow-2xl max-w-4xl w-full overflow-hidden flex flex-col md:flex-row max-h-[90vh] animate-fade-in">
             
-            {/* Close button */}
+            {/* Close button — optimized with p-3 for 44x44px mobile touch target area */}
             <button 
               onClick={() => setSelectedProduct(null)}
               className="absolute top-4 right-4 z-10 p-3 rounded-full bg-white/95 shadow-lg text-charcoal/60 hover:text-charcoal transition-all active:scale-95 cursor-pointer"
