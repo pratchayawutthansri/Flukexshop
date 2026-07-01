@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Jost:ital,wght@0,100..900;1,100..900&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Bodoni Moda", "Sarabun", serif;
+  --font-sans: "Sarabun", "Jost", sans-serif;
+  
+  --color-cream-50: #F0F4F8; /* Mist — soft blue-gray background */
+  --color-cream-100: #FFFFFF; /* Pure white card surface */
+  --color-charcoal: #0F172A; /* Slate 900 — deep primary text */
+  --color-espresso: #1E293B; /* Slate 800 — secondary text */
+  --color-terracotta: #0EA5E9; /* Sky 500 — vibrant primary accent */
+  --color-warm-gray: #CBD5E1; /* Slate 300 — soft border & dividers */
+  --color-soft-taupe: #E2E8F0; /* Slate 200 — alternating section bg */
+}
+
+/* Custom transitions and scroll behaviors */
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-cream-50);
+  color: var(--color-espresso);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Custom Scrollbar for premium minimalist feel */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream-50);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-warm-gray);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-terracotta);
+}
+
+/* Ensure focus states are accessible and attractive */
+*:focus-visible {
+  outline: 2px solid var(--color-terracotta);
+  outline-offset: 4px;
+}
+
+/* Subtle micro-animations for cute premium UI */
+@keyframes soft-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-soft-bounce {
+  animation: soft-bounce 2s ease-in-out infinite;
+}
+
+/* Fade-in animation for lightbox and modals */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+/* iOS Safari Backdrop blur fallback compatibility */
+.backdrop-blur-sm {
+  -webkit-backdrop-filter: blur(4px) !important;
+}
+.backdrop-blur-md {
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+.backdrop-blur-xl {
+  -webkit-backdrop-filter: blur(24px) !important;
+}
+
+/* Mobile Safe Area Padding Utilities */
+.pb-safe {
+  padding-bottom: max(16px, env(safe-area-inset-bottom));
+}
+.pt-safe {
+  padding-top: max(16px, env(safe-area-inset-top));
+}
+
+/* Prevent text overflow and wrapping bugs on iOS devices */
+.break-words-mobile {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
