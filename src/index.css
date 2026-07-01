@@ -80,7 +80,7 @@ html {
   animation: fade-in 0.3s ease-out forwards;
 }
 
-/* iOS Safari Backdrop blur fallback compatibility */
+/* iOS Safari Backdrop blur fallback compatibility. Enables smooth glassmorphic overlays on Apple Safari browsers. */
 .backdrop-blur-sm {
   -webkit-backdrop-filter: blur(4px) !important;
 }
