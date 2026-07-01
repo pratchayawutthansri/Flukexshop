@@ -627,7 +627,7 @@ export default function App() {
 
       {/* Hero Section (Split 2-Column Layout with Gradient Mesh) */}
       <section className="relative overflow-hidden bg-gradient-to-br from-cream-50 via-white to-soft-taupe py-20 lg:py-32 border-b border-warm-gray/30">
-        {/* Ambient gradient mesh blobs for color depth */}
+        {/* Ambient gradient mesh blobs for color depth and premium studio aesthetic */}
         <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-sky-400/[0.07] rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
         <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-indigo-400/[0.05] rounded-full blur-3xl translate-x-1/3 translate-y-1/3 pointer-events-none"></div>
         <div className="absolute top-1/2 left-1/2 w-[400px] h-[400px] bg-amber-300/[0.04] rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
