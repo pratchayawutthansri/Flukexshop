@@ -820,6 +820,7 @@ export default function App() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Color-coded review cards based on client AI service choice */}
           {[
             { name: "คุณสมศักดิ์ พลอยดี", rating: 5, model: "ChatGPT Plus", text: t('review1Text'), avatar: User, accent: "border-l-emerald-400", avatarBg: "from-emerald-400 to-emerald-500" },
             { name: "คุณธนกร แก้ววิเชียร", rating: 5, model: "Gemini Pro", text: t('review2Text'), avatar: Laptop, accent: "border-l-sky-400", avatarBg: "from-sky-400 to-sky-500" },
