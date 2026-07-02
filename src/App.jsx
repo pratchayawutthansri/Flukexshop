@@ -398,6 +398,11 @@ export default function App() {
   const [faqExpanded, setFaqExpanded] = useState({ 0: true, 1: false, 2: false });
   const [toasts, setToasts] = useState([]);
 
+  // Sync HTML lang attribute for Accessibility & SEO
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
+
   // Helper translate function
   const t = (key) => {
     return TRANSLATIONS[lang][key] || key;
@@ -499,7 +504,7 @@ export default function App() {
                     className={`h-full px-0.5 text-[13px] font-medium relative flex items-center transition-colors duration-200 cursor-pointer ${
                       activeTab === item.id 
                         ? 'text-white' 
-                        : 'text-neutral-400 hover:text-neutral-200'
+                        : 'text-slate-300 hover:text-white'
                     }`}
                   >
                     <span>{item.label}</span>
@@ -689,6 +694,10 @@ export default function App() {
               <img 
                 src="/assets/flukexdshop.png" 
                 alt="Fluke XD Shop Banner" 
+                width="1672"
+                height="941"
+                loading="eager"
+                fetchpriority="high"
                 className="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-500"
               />
               {/* Subtle glass reflection sheen on hover */}
@@ -729,12 +738,15 @@ export default function App() {
                 onClick={() => openProductModal(product)}
                 className="group relative rounded-2xl overflow-hidden bg-neutral-900 shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer"
               >
-                {/* Full product poster — object-contain ensures nothing is cropped */}
-                <div className="relative w-full bg-neutral-950">
+                {/* Full product poster — aspect-ratio constraints prevent layout shifts */}
+                <div className="relative w-full bg-neutral-950 aspect-[4/5] overflow-hidden flex items-center justify-center">
                   <img 
                     src={product.image} 
                     alt={product.title} 
-                    className="w-full h-auto block group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+                    width="1122"
+                    height="1402"
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700 ease-out"
                   />
                   
                   {/* Hover gradient overlay */}
@@ -765,7 +777,7 @@ export default function App() {
               {/* Product Name — clear, bold, below the card */}
               <div className="mt-4 text-center">
                 <h3 className="font-sans text-base font-bold text-charcoal tracking-tight">{product.title}</h3>
-                <p className="font-sans text-xs text-charcoal/40 mt-0.5 font-medium">
+                <p className="font-sans text-xs text-charcoal/60 mt-0.5 font-medium">
                   {lang === 'th' ? product.descriptionTh.substring(0, 60) + '...' : product.descriptionEn.substring(0, 60) + '...'}
                 </p>
               </div>
@@ -843,7 +855,7 @@ export default function App() {
                   </span>
                   <div>
                     <h4 className="text-xs font-bold text-charcoal">{review.name}</h4>
-                    <p className="text-[10px] text-sky-500 font-bold uppercase tracking-wider mt-0.5">{review.model}</p>
+                    <p className="text-[10px] text-sky-700 font-bold uppercase tracking-wider mt-0.5">{review.model}</p>
                   </div>
                 </div>
               </div>
@@ -973,6 +985,7 @@ export default function App() {
             <button 
               onClick={() => setSelectedProduct(null)}
               className="absolute top-4 right-4 z-10 p-3 rounded-full bg-white/95 shadow-lg text-charcoal/60 hover:text-charcoal transition-all active:scale-95 cursor-pointer"
+              aria-label="Close product details"
             >
               <X className="w-5 h-5" />
             </button>
@@ -990,7 +1003,7 @@ export default function App() {
             <div className="md:w-1/2 p-8 sm:p-10 flex flex-col justify-start text-left overflow-y-auto max-h-[90vh]">
               
               <div className="space-y-5">
-                <span className="inline-block text-xs font-bold tracking-widest uppercase text-terracotta bg-terracotta/10 px-3 py-1.5 rounded-lg">
+                <span className="inline-block text-xs font-bold tracking-widest uppercase text-sky-850 bg-sky-100 px-3 py-1.5 rounded-lg">
                   {selectedProduct.category}
                 </span>
 
@@ -1003,7 +1016,7 @@ export default function App() {
                 {/* Lightbox link */}
                 <button
                   onClick={() => setLightboxImage(selectedProduct.image)}
-                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-terracotta hover:underline cursor-pointer"
+                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-sky-700 hover:underline cursor-pointer"
                 >
                   <Maximize2 className="w-3.5 h-3.5" />
                   {lang === 'th' ? 'กดเพื่อดูรูปภาพขนาดเต็ม' : 'Click to view full image'}
@@ -1274,7 +1287,8 @@ export default function App() {
             {/* Close Button */}
             <button 
               onClick={() => setContactOpen(false)}
-              className="absolute top-4 right-4 p-3 rounded-full bg-neutral-800 hover:bg-neutral-700 text-neutral-400 hover:text-white transition-all active:scale-95 cursor-pointer"
+              className="absolute top-4 right-4 p-3 rounded-full bg-neutral-800 hover:bg-neutral-700 text-neutral-200 hover:text-white transition-all active:scale-95 cursor-pointer"
+              aria-label="Close contact options"
             >
               <X className="w-5 h-5" />
             </button>
@@ -1293,6 +1307,8 @@ export default function App() {
                 <img 
                   src="/assets/IMG_5631.jpg" 
                   alt="LINE QR Code" 
+                  width="900"
+                  height="900"
                   className="w-full h-full object-contain rounded-lg"
                 />
               </div>
@@ -1358,6 +1374,7 @@ export default function App() {
           <button
             onClick={() => setLightboxImage(null)}
             className="absolute top-5 right-5 z-10 p-2 rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all cursor-pointer"
+            aria-label="Close image zoom"
           >
             <X className="w-5 h-5" />
           </button>
@@ -1392,6 +1409,7 @@ export default function App() {
               <button 
                 onClick={() => setLang('th')} 
                 className={`hover:text-white transition-colors cursor-pointer ${lang === 'th' ? 'text-white font-extrabold underline underline-offset-4' : 'opacity-60'}`}
+                aria-label="Switch to Thai Language"
               >
                 TH
               </button>
@@ -1399,6 +1417,7 @@ export default function App() {
               <button 
                 onClick={() => setLang('en')} 
                 className={`hover:text-white transition-colors cursor-pointer ${lang === 'en' ? 'text-white font-extrabold underline underline-offset-4' : 'opacity-60'}`}
+                aria-label="Switch to English Language"
               >
                 EN
               </button>
