@@ -1075,178 +1075,28 @@ export default function App() {
 
               {/* Special Guide for ChatGPT Project Sharing / Migration */}
               {selectedProduct.modelKey === 'chatgpt-4o' && (
-                <div className="pt-6 mt-6 border-t border-slate-200 space-y-6">
-                  {/* Header */}
-                  <div className="text-center space-y-2">
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 text-[10px] font-bold uppercase tracking-wider">
-                      <Sparkles className="w-3 h-3" />
-                      <span>{lang === 'th' ? "คู่มือแชร์โปรเจกต์" : "ChatGPT Guide"}</span>
-                    </div>
-                    <h3 className="font-sans text-lg sm:text-xl font-extrabold text-charcoal tracking-tight">
-                      {lang === 'th' ? "วิธีการย้ายโปรเจกต์ (Share Project) ใน ChatGPT" : "How to Share/Migrate Projects in ChatGPT"}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-charcoal/70 max-w-lg mx-auto leading-relaxed font-medium">
-                      {lang === 'th'
-                        ? "สามารถย้ายโปรเจกต์หรือแชร์งานให้บัญชีอื่นใช้งานร่วมกันได้ง่ายๆ โดยไม่ต้องเขียนใหม่หรือก๊อปปี้แชทแยกชุด ทำตามขั้นตอนด้านล่างนี้ได้เลยครับ"
-                        : "Easily migrate or share projects with other accounts without copying conversations manually. Follow the steps below."}
-                    </p>
-                  </div>
-
-                  {/* Steps Grid (1 & 2) */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    {/* Step 1 */}
-                    <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-5 flex flex-col justify-between space-y-4 hover:shadow-md transition-shadow">
-                      <div className="space-y-2 text-left">
-                        <span className="inline-block text-[10px] font-extrabold uppercase tracking-widest text-sky-500 bg-sky-500/10 px-2.5 py-1 rounded-md">
-                          {lang === 'th' ? "ขั้นตอนที่ 1" : "Step 1"}
-                        </span>
-                        <h4 className="text-sm sm:text-base font-bold text-charcoal">{lang === 'th' ? "เตรียมโปรเจกต์ต้นทาง" : "Prepare Project"}</h4>
-                        <p className="text-xs sm:text-sm text-charcoal/70 leading-relaxed font-medium">
-                          {lang === 'th'
-                            ? "เลือกงานที่ต้องการย้ายในแถบซ้าย แล้วกดปุ่มจุดสามจุด (...) หลังชื่อโปรเจกต์ จากนั้นเลือก Share project"
-                            : "Select the project in the left sidebar, click the three dots (...) icon, and choose Share project."}
-                        </p>
-                      </div>
-                      <div className="rounded-xl overflow-hidden border border-slate-200/80 bg-neutral-900 flex items-center justify-center aspect-video relative group">
-                        <img 
-                          src="/assets/chatgpt_share_step_1.png" 
-                          alt="Step 1: Share Project" 
-                          className="w-full h-full object-contain cursor-pointer hover:opacity-90 transition-opacity sharp-img"
-                          onClick={() => setLightboxImage("/assets/chatgpt_share_step_1.png")}
-                        />
-                        <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded-md pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
-                          {lang === 'th' ? "🔍 คลิกเพื่อขยาย" : "🔍 Click to expand"}
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Step 2 */}
-                    <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-5 flex flex-col justify-between space-y-4 hover:shadow-md transition-shadow">
-                      <div className="space-y-2 text-left">
-                        <span className="inline-block text-[10px] font-extrabold uppercase tracking-widest text-indigo-500 bg-indigo-500/10 px-2.5 py-1 rounded-md">
-                          {lang === 'th' ? "ขั้นตอนที่ 2" : "Step 2"}
-                        </span>
-                        <h4 className="text-sm sm:text-base font-bold text-charcoal">{lang === 'th' ? "สร้างลิงก์สำหรับแชร์" : "Create Share Link"}</h4>
-                        <p className="text-xs sm:text-sm text-charcoal/70 leading-relaxed font-medium">
-                          {lang === 'th'
-                            ? "ตั้งค่าสิทธิ์การเข้าถึงเป็น Anyone with a link จากนั้นกดปุ่ม Copy link เพื่อคัดลอกลิงก์ส่งต่อ"
-                            : "Set the access permission to Anyone with a link and click the Copy link button to copy it."}
-                        </p>
-                      </div>
-                      <div className="rounded-xl overflow-hidden border border-slate-200/80 bg-neutral-900 flex items-center justify-center aspect-video relative group">
-                        <img 
-                          src="/assets/chatgpt_share_step_2.png" 
-                          alt="Step 2: Copy Link" 
-                          className="w-full h-full object-contain cursor-pointer hover:opacity-90 transition-opacity sharp-img"
-                          onClick={() => setLightboxImage("/assets/chatgpt_share_step_2.png")}
-                        />
-                        <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded-md pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
-                          {lang === 'th' ? "🔍 คลิกเพื่อขยาย" : "🔍 Click to expand"}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Step 3 */}
-                  <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-5 sm:p-6 space-y-4 text-left">
-                    <div className="space-y-1">
-                      <span className="inline-block text-[10px] font-extrabold uppercase tracking-widest text-emerald-500 bg-emerald-500/10 px-2.5 py-1 rounded-md">
-                        {lang === 'th' ? "ขั้นตอนที่ 3" : "Step 3"}
-                      </span>
-                      <h4 className="text-sm sm:text-base font-bold text-charcoal">{lang === 'th' ? "ส่งลิงก์ให้บัญชีปลายทาง" : "Send Link to Destination"}</h4>
-                      <p className="text-xs sm:text-sm text-charcoal/70 leading-relaxed font-medium">
-                        {lang === 'th'
-                          ? "นำลิงก์ที่คัดลอกได้ส่งให้บัญชีปลายทางผ่านช่องทางแชทที่สะดวก เช่น LINE หรือ Facebook"
-                          : "Send the copied link to the target account via LINE, Facebook, or any message channel."}
-                      </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 border-t border-slate-200/60">
-                      {/* Sender instructions */}
-                      <div className="space-y-3">
-                        <span className="text-xs font-bold text-emerald-600 tracking-wide block uppercase">
-                          {lang === 'th' ? "สำหรับผู้ส่ง (บัญชีต้นทาง)" : "For Sender (Original Account)"}
-                        </span>
-                        <ul className="space-y-2.5 text-xs sm:text-sm text-charcoal/80 font-medium">
-                          <li className="flex items-start gap-2.5">
-                            <span className="text-emerald-500 font-bold mt-0.5">✓</span>
-                            <span>{lang === 'th' ? "เลือกโปรเจกต์ที่ต้องการย้ายงาน" : "Select the project to migrate"}</span>
-                          </li>
-                          <li className="flex items-start gap-2.5">
-                            <span className="text-emerald-500 font-bold mt-0.5">✓</span>
-                            <span>{lang === 'th' ? "กดปุ่มจุด 3 จุดด้านหลังชื่อ" : "Click the 3 dots (...) menu"}</span>
-                          </li>
-                          <li className="flex items-start gap-2.5">
-                            <span className="text-emerald-500 font-bold mt-0.5">✓</span>
-                            <span>{lang === 'th' ? "เลือก Share project ในรายการเมนู" : "Choose Share project option"}</span>
-                          </li>
-                          <li className="flex items-start gap-2.5">
-                            <span className="text-emerald-500 font-bold mt-0.5">✓</span>
-                            <span>{lang === 'th' ? "ตั้งค่าสิทธิ์เป็น Anyone with a link" : "Set access permission as Anyone with a link"}</span>
-                          </li>
-                          <li className="flex items-start gap-2.5">
-                            <span className="text-emerald-500 font-bold mt-0.5">✓</span>
-                            <span>{lang === 'th' ? "กด Copy link แล้วนำส่งให้บัญชีปลายทาง" : "Click Copy link and send to destination"}</span>
-                          </li>
-                        </ul>
-                      </div>
-
-                      {/* Recipient instructions */}
-                      <div className="space-y-3">
-                        <span className="text-xs font-bold text-indigo-600 tracking-wide block uppercase">
-                          {lang === 'th' ? "สำหรับผู้รับ (บัญชีปลายทาง)" : "For Recipient (New Account)"}
-                        </span>
-                        <ul className="space-y-2.5 text-xs sm:text-sm text-charcoal/80 font-medium">
-                          <li className="flex items-start gap-2.5">
-                            <span className="text-indigo-500 font-bold mt-0.5">✓</span>
-                            <span>{lang === 'th' ? "เปิดลิงก์แชร์ที่ได้รับบนเบราว์เซอร์ที่ล็อกอินบัญชีใหม่ไว้" : "Open link on browser logged into the new account"}</span>
-                          </li>
-                          <li className="flex items-start gap-2.5">
-                            <span className="text-indigo-500 font-bold mt-0.5">✓</span>
-                            <span>{lang === 'th' ? "ระบบของ ChatGPT จะทำการนำเข้าข้อมูลอัตโนมัติ" : "ChatGPT will automatically import the shared project"}</span>
-                          </li>
-                          <li className="flex items-start gap-2.5">
-                            <span className="text-indigo-500 font-bold mt-0.5">✓</span>
-                            <span>{lang === 'th' ? "โปรเจกต์จะปรากฏให้เข้าใช้งานได้ตรงเมนู Projects ทันที" : "The project will instantly appear in your Projects list"}</span>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Metadata Cards */}
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 text-left space-y-2">
-                      <span className="text-xs font-bold text-charcoal flex items-center gap-1.5">
-                        ℹ️ {lang === 'th' ? "หมายเหตุ" : "Note"}
-                      </span>
-                      <p className="text-[11px] sm:text-xs text-charcoal/70 leading-relaxed font-medium">
-                        {lang === 'th'
-                          ? "ทุกคนที่มีลิงก์จะสามารถเข้าชมประวัติการคุยและไฟล์แนบในโปรเจกต์เดิมได้ทั้งหมดโดยอัตโนมัติ"
-                          : "Anyone with the link can view chat history and attached files in the project."}
-                      </p>
-                    </div>
-
-                    <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 text-left space-y-2">
-                      <span className="text-xs font-bold text-amber-600 flex items-center gap-1.5">
-                        🔒 {lang === 'th' ? "ความปลอดภัย" : "Security"}
-                      </span>
-                      <p className="text-[11px] sm:text-xs text-charcoal/70 leading-relaxed font-medium">
-                        {lang === 'th'
-                          ? "หากต้องการปิดการเข้าถึงในอนาคต สามารถตั้งสิทธิ์การแชร์กลับเป็น Only those invited ได้ตลอดเวลา"
-                          : "To restrict access later, change the permission settings back to Only those invited."}
-                      </p>
-                    </div>
-
-                    <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 text-left space-y-2">
-                      <span className="text-xs font-bold text-emerald-600 flex items-center gap-1.5">
-                        ✅ {lang === 'th' ? "ประโยชน์" : "Benefits"}
-                      </span>
-                      <p className="text-[11px] sm:text-xs text-charcoal/70 leading-relaxed font-medium">
-                        {lang === 'th'
-                          ? "ประหยัดเวลากว่าการก๊อปปี้แบบแยกคำถาม ลดความผิดพลาด และสะดวกต่อการใช้งานร่วมกัน"
-                          : "Saves time compared to manual copying, reduces errors, and simplifies collaboration."}
-                      </p>
+                <div className="pt-6 mt-6 border-t border-slate-200 space-y-4">
+                  <h3 className="text-xs sm:text-sm uppercase tracking-widest text-neutral-400 font-bold">
+                    {lang === 'th' ? "คู่มือการย้ายโปรเจกต์ (ChatGPT Share Project)" : "ChatGPT Project Migration Guide"}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-charcoal/70 leading-relaxed font-medium">
+                    {lang === 'th' 
+                      ? "ลูกค้าสามารถแชร์โปรเจกต์หรือย้ายประวัติการทำงานจากบัญชีเดิมมายังบัญชีใหม่ได้ง่ายๆ ตามคู่มือด้านล่างนี้ (คลิกที่รูปภาพเพื่อขยายขนาดเต็ม):" 
+                      : "You can easily share projects or migrate chat history from your old account to the new one by following this guide (Click image to expand):"}
+                  </p>
+                  
+                  {/* Step Image */}
+                  <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-neutral-950 flex items-center justify-center relative group">
+                    <img 
+                      src="/assets/chatgpt_share_project.png" 
+                      alt="ChatGPT Project Migration Guide" 
+                      width="1672"
+                      height="941"
+                      className="w-full h-auto max-h-[500px] object-contain cursor-pointer hover:opacity-95 transition-opacity sharp-img"
+                      onClick={() => setLightboxImage("/assets/chatgpt_share_project.png")}
+                    />
+                    <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-md text-white text-[10px] font-bold px-2.5 py-1.5 rounded-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
+                      {lang === 'th' ? "🔍 คลิกเพื่อขยาย" : "🔍 Click to expand"}
                     </div>
                   </div>
                 </div>
